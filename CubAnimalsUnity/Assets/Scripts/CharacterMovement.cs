@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Character : MonoBehaviour {
+public class CharacterMovement : MonoBehaviour {
 
     Rigidbody2D rb;
     bool jumping;
