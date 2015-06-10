@@ -9,21 +9,28 @@ public class CharacterMovement : MonoBehaviour {
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
 	}
+
+    //TODO: Sensible input system
+    //TODO: Swapping character
+    //TODO: Instantiating the character at the beginning of the level
+    //TODO: Character interacts w/ stuff
+    //TODO: Character has lifes 
+    //TODO: Character can die
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKey(KeyCode.D))
-        { 
+        {
             //Move right
-            gameObject.transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime);
+            gameObject.transform.Translate(new Vector3(2, 0, 0) * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            gameObject.transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime);
+            gameObject.transform.Translate(new Vector3(-2, 0, 0) * Time.deltaTime);
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && !jumping)
+        if (Input.GetKeyDown(KeyCode.Space) && !jumping)
         {
-            rb.AddForce(new Vector2(0,1) * 10, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, 1) * 10, ForceMode2D.Impulse);
             jumping = true;
         }
 	}
