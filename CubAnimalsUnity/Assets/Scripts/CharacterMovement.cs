@@ -6,29 +6,35 @@ public class CharacterMovement : MonoBehaviour {
     Rigidbody2D rb;
     bool jumping;
 	// Use this for initialization
-	void Start () {
+
+	void Start () 
+    {
         rb = gameObject.GetComponent<Rigidbody2D>();
 	}
 
     //TODO: Sensible input system
-    //TODO: Swapping character
+    //TODO: Swapping character, only when the player does so in a menu
+
     //TODO: Instantiating the character at the beginning of the level
     //TODO: Character interacts w/ stuff
     //TODO: Character has lifes 
     //TODO: Character can die
 	
-	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.D))
+
+        float xAxis = Input.GetAxis("Horizontal");
+        if (xAxis > 0)
         {
             //Move right
-            gameObject.transform.Translate(new Vector3(2, 0, 0) * Time.deltaTime);
+            gameObject.transform.Translate(new Vector3(5, 0, 0) * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.A))
+
+        else if (xAxis < 0)
         {
-            gameObject.transform.Translate(new Vector3(-2, 0, 0) * Time.deltaTime);
+            gameObject.transform.Translate(new Vector3(-5, 0, 0) * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.Space) && !jumping)
+
+        if (Input.GetButton("Jump") && !jumping)
         {
             rb.AddForce(new Vector2(0, 1) * 10, ForceMode2D.Impulse);
             jumping = true;

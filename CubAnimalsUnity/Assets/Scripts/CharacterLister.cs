@@ -3,9 +3,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CharacterLister : MonoBehaviour
+public static class CharacterLister 
 {
-    public List<Character> Characters;
+    public static List<Character> Characters;
+
 }
 
 [Serializable]
@@ -13,5 +14,6 @@ public class Character
 {
     public string Name;
     public GameObject Body;
-    public int test;
+    public bool Unlocked;
+
 }
