@@ -13,4 +13,5 @@ public class Character
 {
     public string Name;
     public GameObject Body;
+    public int test;
 }
